@@ -2,14 +2,11 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Ekene Okeke');
-})
+const myControllers = require('./controllers/index.js');
 
-app.get('/mariah', (req, res) => {
-    res.send('Mariah Okeke');
-})
+app.get('/', myControllers.ekeneRoute)
+app.get('/mariah', myControllers.mariahRoute)
 
-app.listen(process.env.PORT || 3000);
-console.log('Server running at port ' + (process.env.PORT || 3000));
+app.listen(process.env.port || 3000);
+console.log('Server running at port ' + (process.env.port || 3000));
 
