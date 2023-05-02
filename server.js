@@ -2,10 +2,10 @@
 const express = require('express');
 const app = express();
 
-const myControllers = require('./controllers/index.js');
 
-app.get('/', myControllers.ekeneRoute)
-app.get('/mariah', myControllers.mariahRoute)
+const port = 3000
+
+app.use('/', require('./routes/index.js'));
 
 app.listen(process.env.port || 3000);
 console.log('Server running at port ' + (process.env.port || 3000));
